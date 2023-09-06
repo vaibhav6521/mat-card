@@ -1,0 +1,82 @@
+/* mat-card-container.component.css */
+
+.card-container {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  position: relative; /* To make positioning of the button relative to the container */
+}
+
+.mat-card {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0; /* Remove border-radius to make it square */
+  overflow: hidden;
+  width: 0; /* Initially set width to 0 for animation */
+  position: relative; /* To make positioning of the button relative to the card */
+}
+
+.card-one {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.card-two {
+  width: 50%; /* Set a fixed width for the second card (adjust as needed) */
+  flex-shrink: 0;
+  margin-left: -50%; /* Initial margin to push the card out of view to the left */
+  opacity: 0; /* Initially set opacity to 0 */
+  transition: margin-left 2s ease-in-out, opacity 2.5s ease-in-out; /* Adjust transition duration */
+}
+
+.show-card-two .card-two {
+  margin-left: 0; /* Bring the card back into view */
+  opacity: 1; /* Set opacity to 1 for a smooth fade-in effect */
+}
+
+/* Style for card headers */
+.mat-card-header {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* Style for card titles */
+.mat-card-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Style for card content */
+.mat-card-content {
+  padding: 20px;
+}
+
+/* Style for buttons */
+button.mat-raised-button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button.mat-raised-button:hover {
+  background-color: #1976D2;
+}
+
+/* Style for the Save button */
+.save-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.save-button:hover {
+  background-color: #1976D2;
+}

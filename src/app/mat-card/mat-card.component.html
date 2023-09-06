@@ -1,0 +1,62 @@
+<div class="card-container">
+  <mat-card [@cardState]="showMatCardOne ? 'visible' : 'hidden'" class="card-one">
+    <mat-card-header class="mat-card-header">
+      <mat-card-title class="mat-card-title">Mat-Card One</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content class="mat-card-content">
+      <!-- Content for mat-card one -->
+      <p>This is the content of Mat-Card One.</p>
+      
+      <!-- Add a dropdown menu -->
+      <mat-form-field class="dropdown">
+        <mat-label>Choose an option:</mat-label>
+        <mat-select [(ngModel)]="selectedOption" name="selectedOption">
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <!-- Add a list of items with checkboxes -->
+      <p>List of items:</p>
+      <ul>
+        <li>
+          <label>
+            <input type="checkbox" [(ngModel)]="item1Checked"> Item 1
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" [(ngModel)]="item2Checked"> Item 2
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" [(ngModel)]="item3Checked"> Item 3
+          </label>
+        </li>
+      </ul>
+    </mat-card-content>
+
+    <!-- Place the Save button in the bottom-right corner -->
+    <button mat-raised-button color="primary" class="save-button" (click)="saveData()">Save</button>
+  </mat-card>
+
+  <mat-card *ngIf="showMatCardTwo " [@cardStateSlow]="'visible'" class="card-two">
+    <mat-card-header class="mat-card-header">
+      <mat-card-title class="mat-card-title">Mat-Card Two</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content class="mat-card-content">
+      <!-- Content for mat-card two -->
+      <p>Selected Option from Mat-Card One: {{ selectedOption }}</p>
+      <p>Selected Items from Mat-Card One:</p>
+      <ul>
+        <li *ngIf="item1Checked">Item 1</li>
+        <li *ngIf="item2Checked">Item 2</li>
+        <li *ngIf="item3Checked">Item 3</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div>
